@@ -204,27 +204,25 @@ This is just the beginning bro💪🔥.<br>Your friend, Abed.</p>
   </div>
 
   <script>
-    function showBirthdayCard() {
-      // إخفاء الصفحة الأولى
-      document.getElementById('first-page').style.display = 'none';
-      // عرض الصفحة الثانية
-      document.getElementById('birthday-card').style.display = 'block';
-      
-      // بدء العد التنازلي
-      const birthDate = new Date('2010-4-15T00:00:00'); // تاريخ ميلاد Dr. Awad
-      setInterval(function() {
-        const now = new Date();
-        const timeRemaining = birthDate - now;
+  function showBirthdayCard() {
+    // إخفاء الصفحة الأولى
+    document.getElementById('first-page').style.display = 'none';
+    // عرض الصفحة الثانية
+    document.getElementById('birthday-card').style.display = 'block';
+    
+    // بدء حساب المدة منذ الولادة
+    const birthDate = new Date('2010-04-15T00:00:00'); // صيغة ISO أفضل
+    setInterval(function() {
+      const now = new Date();
+      const timeElapsed = now - birthDate;
 
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+      const days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeElapsed % (1000 * 60)) / 1000);
 
-        document.getElementById('countdown').innerHTML =
-          `The world just got luckier since: <br> ${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }, 1000);
-    }
-  </script>
-</body>
-</html>
+      document.getElementById('countdown').innerHTML =
+        `The world just got luckier since: <br> ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  }
+</script>
